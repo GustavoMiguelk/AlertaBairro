@@ -1,6 +1,22 @@
+using AlertaBairro.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
+
 ﻿var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+
+var oracleConnectionString = builder.Configuration.GetConnectionString("Oracle")
+    ?? Environment.GetEnvironmentVariable("ORACLE_CONNECTION_STRING");
+
+if (string.IsNullOrWhiteSpace(oracleConnectionString))
+{
+    throw new InvalidOperationException(
+        "A connection string do Oracle não foi configurada. " +
+        "Defina ConnectionStrings__Oracle ou ORACLE_CONNECTION_STRING.");
+}
+
+builder.Services.AddDbContext<AlertaBairroDbContext>(options =>
+    options.UseOracle(oracleConnectionString));
 
 var app = builder.Build();
 
