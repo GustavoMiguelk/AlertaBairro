@@ -1,5 +1,6 @@
 using AlertaBairro.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
+using Oracle.EntityFrameworkCore.Infrastructure;
 
 ﻿var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +17,8 @@ if (string.IsNullOrWhiteSpace(oracleConnectionString))
 }
 
 builder.Services.AddDbContext<AlertaBairroDbContext>(options =>
-    options.UseOracle(oracleConnectionString));
+    options.UseOracle(oracleConnectionString, oracle =>
+        oracle.UseOracleSQLCompatibility(OracleSQLCompatibility.DatabaseVersion19)));
 
 var app = builder.Build();
 
