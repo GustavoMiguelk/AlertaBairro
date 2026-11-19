@@ -5,7 +5,15 @@ comunitários associados a bairros.
 
 ## Integrantes
 
-- A preencher: nome e RM de cada integrante.
+| Nome | RM | Turma |
+|---|---|---|
+| Mariana de Paula Aguiar | RM566850 | 2TDSPB |
+| Gustavo Miguel Martins de Oliveira | RM566666 | 2TDSPB |
+| Manuella Moraes Rodrigues Rinaldi | RM567915 | 2TDSPS |
+
+## Vídeo de demonstração
+
+https://www.youtube.com/watch?v=YiCtxsUq6kY
 
 ## Tecnologias
 
